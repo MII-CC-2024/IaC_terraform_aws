@@ -97,8 +97,6 @@ resource "aws_instance" "server" {
   }
 
 
-}
-
   provisioner "local-exec" {
     command    = "echo 'The server's IP address is ${self.private_ip}'"
     on_failure = continue
@@ -108,4 +106,6 @@ resource "aws_instance" "server" {
     when    = destroy
     command = "echo 'Destroy-time provisioner'"
   }
+  
+}
 ```
